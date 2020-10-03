@@ -3,44 +3,32 @@
     <div class="container">
     <div class="screen"><span>NOKIA</span>
       <!-- <img class="image" src="https://i.pinimg.com/originals/e5/0c/c6/e50cc6fce3321a71d03526429c7b9c00.jpg" width="100px" alt=""> -->
-      <q-input class="image" bg-color="bg-teal text-white" v-model="text" />
-      <div class="middle-btn"></div>
-      <div class="call-btn">C</div>
+      <q-input class="image" bg-color="green-7 text-white" v-model="text" />
+      <div class="middle-btn" @click="enter()"></div>
+      <div class="call-btn" @click="limpaNumeros()">C</div>
       <div class="chevrons">
        </div>
     </div>
     <div class="buttons">
       <div class="button-row1">
-        <q-btn class="btns btn-1" label="1"></q-btn>
-        <q-btn class="btns btn-2" label="2"></q-btn>
-        <q-btn class="btns btn-3" label="3"></q-btn>
-        <!-- <div class="btns btn-1">1</div> -->
-        <!-- <div class="btns btn-2">2</div> -->
-        <!-- <div class="btns btn-3">3</div> -->
+        <div class="btns btn-1" @click="digitaNumero('1')">1</div>
+        <div class="btns btn-2" @click="digitaNumero('2')">2</div>
+        <div class="btns btn-3" @click="digitaNumero('3')">3</div>
       </div>
       <div class="button-row2">
-        <q-btn class="btns btn-4" label="4"></q-btn>
-        <q-btn class="btns btn-5" label="5"></q-btn>
-        <q-btn class="btns btn-6" label="6"></q-btn>
-        <!-- <div class="btns btn-4">4</div>
-        <div class="btns btn-5">5</div>
-        <div class="btns btn-6">6</div> -->
+        <div class="btns btn-4" @click="digitaNumero('4')">4</div>
+        <div class="btns btn-5" @click="digitaNumero('5')">5</div>
+        <div class="btns btn-6" @click="digitaNumero('6')">6</div>
       </div>
       <div class="button-row3">
-        <q-btn class="btns btn-7" label="7"></q-btn>
-        <q-btn class="btns btn-8" label="8"></q-btn>
-        <q-btn class="btns btn-9" label="9"></q-btn>
-        <!-- <div class="btns btn-7">7</div>
-        <div class="btns btn-8">8</div>
-        <div class="btns btn-9">9</div> -->
+        <div class="btns btn-7" @click="digitaNumero('7')">7</div>
+        <div class="btns btn-8" @click="digitaNumero('8')">8</div>
+        <div class="btns btn-9" @click="digitaNumero('9')">9</div>
       </div>
       <div class="button-row4">
-        <q-btn class="btns btn-10" label="*"></q-btn>
-        <q-btn class="btns btn-0" label="0"></q-btn>
-        <q-btn class="btns btn-12" label="#"></q-btn>
-        <!-- <div class="btns btn-10">*</div>
-        <div class="btns btn-0">0</div>
-        <div class="btns btn-12">#</div> -->
+        <div class="btns btn-10" @click="digitaNumero('*')">*</div>
+        <div class="btns btn-0" @click="digitaNumero(' ')">0</div>
+        <div class="btns btn-12" @click="digitaNumero('#')">#</div>
       </div>
     </div>
   </div>
@@ -52,13 +40,17 @@ export default {
   name: 'PageIndex',
   data () {
     return {
-      text: '2 222',
-      btn1: '1'
+      text: '2 222 222 33 66 8 88 777 33'
     }
   },
   methods: {
-    digitaNumero () {
-      this.text += this.btn1
+    enter () {
+    },
+    digitaNumero (num) {
+      this.text = this.text += num
+    },
+    limpaNumeros () {
+      this.text = ''
     }
   }
 }
